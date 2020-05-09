@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tab_bar_view/tab_bar_screen.dart';
 import 'package:flutter_tab_bar_view/tab_bar_view_screen.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color(0xFF2d3447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TabBarViewScreen(),
+      // home: TabBarViewScreen(),
+      home: TabBarScreen(),
     );
   }
 }
