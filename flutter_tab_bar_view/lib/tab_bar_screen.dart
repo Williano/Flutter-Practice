@@ -54,6 +54,7 @@ class _TabBarScreenState extends State<TabBarScreen>
           ),
           Expanded(
             child: TabBarView(
+              controller: _controller,
               children: <Widget>[
                 Container(
                   color: Colors.red,
