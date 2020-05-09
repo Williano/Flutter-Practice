@@ -38,6 +38,12 @@ class _TabBarScreenState extends State<TabBarScreen>
           Text("Hi"),
           Text("Hi"),
           Text("Hi"),
+          Text("Hi"),
+          Text("Hi"),
+          Text("Hi"),
+          Text("Hi"),
+          Text("Hi"),
+          Text("Hi"),
           Container(
             color: Color(0xFF2d3447),
             child: TabBar(controller: _controller, tabs: <Widget>[
@@ -54,20 +60,35 @@ class _TabBarScreenState extends State<TabBarScreen>
           ),
           Expanded(
             child: TabBarView(
+              key: PageStorageKey("1"),
               controller: _controller,
               children: <Widget>[
-                Container(
-                  color: Colors.red,
-                ),
-                Container(
-                  color: Colors.yellow,
-                ),
+                ListView.builder(itemBuilder: (context, index) {
+                  return ExpansionTile(
+                    key: PageStorageKey(index),
+                    title: Text("Try me"),
+                    children: <Widget>[
+                      Text("Hello"),
+                      Text("Hello"),
+                      Text("Hello"),
+                      Text("Hello"),
+                    ],
+                  );
+                }),
+                GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3),
+                    itemBuilder: (context, index) => Card(
+                          margin: const EdgeInsets.only(
+                              left: 10.0, right: 10.0, bottom: 10.0, top: 10.0),
+                          elevation: 10.0,
+                        )),
                 Container(
                   color: Colors.green,
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
