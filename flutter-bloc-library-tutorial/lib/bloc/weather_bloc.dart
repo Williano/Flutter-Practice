@@ -45,7 +45,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
   @override
   void onTransition(Transition<WeatherEvent, WeatherState> transition) {
-    // TODO: implement onTransition
     super.onTransition(transition);
     print(transition);
   }
