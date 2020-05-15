@@ -21,11 +21,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   Stream<WeatherState> mapEventToState(
     WeatherEvent event,
   ) async* {
-    // Emitting a state from the asynchronous generator
     yield WeatherLoading();
-    // Branching the executed logic by checking the event type
+
     if (event is GetWeather) {
-      // Emit either Loaded or Error
       try {
         final weather = await repository.fetchWeather(event.cityName);
         yield WeatherLoaded(weather);
