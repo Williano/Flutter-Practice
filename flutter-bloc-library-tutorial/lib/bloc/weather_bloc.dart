@@ -31,7 +31,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
         yield WeatherError("Couldn't fetch weather. Is the device online?");
       }
     } else if (event is GetDetailedWeather) {
-      // Code duplication 😢 to keep the code simple for the tutorial...
       try {
         final weather = await repository.fetchDetailedWeather(event.cityName);
         yield WeatherLoaded(weather);
