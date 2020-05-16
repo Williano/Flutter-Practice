@@ -49,7 +49,7 @@ class TabBarViewScreen extends StatelessWidget {
               color: Colors.yellow,
             ),
             Container(
-              color: Colors.green,
+              color: Colors.pink,
             )
           ]),
         ));
