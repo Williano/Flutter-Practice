@@ -68,7 +68,7 @@ class _PageFormState extends State<PageForm> {
                     },
                     validator: (value) {
                       if (value.isEmpty) {
-                        return "Please Enter your password";
+                        return "Enter your password";
                       }
 
                       if (value.length != 8) {
