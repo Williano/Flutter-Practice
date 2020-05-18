@@ -72,7 +72,7 @@ class _PageFormState extends State<PageForm> {
                       }
 
                       if (value.length != 8) {
-                        return "Please password must be 8 characters long";
+                        return "Password must be 8 characters long";
                       }
                       return null;
                     },
