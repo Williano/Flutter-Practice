@@ -39,7 +39,7 @@ class _PageFormState extends State<PageForm> {
                     },
                     validator: (value) {
                       if (value.isEmpty) {
-                        return "Please Enter your username";
+                        return "Enter your username";
                       }
                       return null;
                     },
