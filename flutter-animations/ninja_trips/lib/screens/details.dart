@@ -26,7 +26,7 @@ class Details extends StatelessWidget {
                 fit: BoxFit.cover,
                 alignment: Alignment.topCenter,
               )),
-              SizedBox(height: 30),
+              SizedBox(height: 31),
               ListTile(
                   title: Text(trip.title,
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.grey[800])),
