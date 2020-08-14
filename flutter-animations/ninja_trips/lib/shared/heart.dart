@@ -7,7 +7,8 @@ class Heart extends StatefulWidget {
 
 class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  Animation _colorAnimation;
+  Animation<Color> _colorAnimation;
+  Animation<double> _sizeAnimation;
   bool _isFav = false;
 
   @override
@@ -16,24 +17,32 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(microseconds: 500),
-    )
-      ..addListener(() {})
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          setState(() {
-            _isFav = true;
-          });
-        }
+      duration: Duration(microseconds: 300),
+    );
 
-        if (status == AnimationStatus.dismissed) {
-          setState(() {
-            _isFav = false;
-          });
-        }
-      });
+    _controller.addListener(() {
+      print(_sizeAnimation.value);
+    });
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isFav = true;
+        });
+      }
+
+      if (status == AnimationStatus.dismissed) {
+        setState(() {
+          _isFav = false;
+        });
+      }
+    });
 
     _colorAnimation = ColorTween(begin: Colors.grey[400], end: Colors.red).animate(_controller);
+    _sizeAnimation = TweenSequence(<TweenSequenceItem<double>>[
+      TweenSequenceItem<double>(tween: Tween<double>(begin: 30.0, end: 50.0), weight: 50.0),
+      TweenSequenceItem<double>(tween: Tween<double>(begin: 50.0, end: 30.0), weight: 50.0)
+    ]).animate(_controller);
   }
 
   @override
@@ -45,7 +54,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
           icon: Icon(
             Icons.favorite,
             color: _colorAnimation.value,
-            size: 30,
+            size: _sizeAnimation.value,
           ),
           onPressed: () {
             _isFav ? _controller.reverse() : _controller.forward();
