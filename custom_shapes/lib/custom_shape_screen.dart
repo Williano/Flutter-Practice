@@ -14,15 +14,20 @@ class CustomShaperScreen extends StatelessWidget {
   }
 }
 
-class CustomCurve extends CustomPainter {
+class CustomLine extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
+    Paint paint = Paint();
+    // set properties to paint
+
+    Path path = Path();
+    // draw your path
+
+    canvas.drawPath(path, paint);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    throw true;
+    return true;
   }
 }
