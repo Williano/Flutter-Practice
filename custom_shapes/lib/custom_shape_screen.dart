@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomShaperScreen extends StatelessWidget {
+class CustomShapeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +9,12 @@ class CustomShaperScreen extends StatelessWidget {
         backgroundColor: Colors.blueGrey[400],
         centerTitle: true,
       ),
-      body: CustomPaint(),
+      body: Container(
+        color: Colors.white,
+        child: CustomPaint(
+          painter: CustomLine(),
+        ),
+      ),
     );
   }
 }
