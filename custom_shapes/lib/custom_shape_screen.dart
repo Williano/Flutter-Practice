@@ -10,7 +10,7 @@ class CustomShapeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: CustomPaint(
-        painter: CustomCubic(),
+        painter: CustomConic(),
         child: Container(),
       ),
     );
@@ -92,6 +92,26 @@ class CustomCubic extends CustomPainter {
     Path path = Path();
     path.cubicTo(size.width / 4, 3 * size.height / 4, 3 * size.width / 4,
         size.height / 4, size.width, size.height);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class CustomConic extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = Colors.red
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 8.0;
+
+    Path path = Path();
+    path.conicTo(
+        size.width / 4, 3 * size.height / 4, size.width, size.height, 20);
     canvas.drawPath(path, paint);
   }
 
