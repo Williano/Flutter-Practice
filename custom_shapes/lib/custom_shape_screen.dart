@@ -18,10 +18,12 @@ class CustomLine extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
-    // set properties to paint
+    paint.color = Colors.green[800];
+    paint.style = PaintingStyle.stroke;
+    paint.strokeWidth = 2.0;
 
     Path path = Path();
-    // draw your path
+    path.lineTo(size.width, size.height);
 
     canvas.drawPath(path, paint);
   }
