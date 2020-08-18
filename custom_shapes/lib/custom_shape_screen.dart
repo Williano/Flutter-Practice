@@ -9,11 +9,9 @@ class CustomShapeScreen extends StatelessWidget {
         backgroundColor: Colors.blueGrey[400],
         centerTitle: true,
       ),
-      body: Container(
-        color: Colors.white,
-        child: CustomPaint(
-          painter: CustomLine(),
-        ),
+      body: CustomPaint(
+        painter: CustomCircle(),
+        child: Container(),
       ),
     );
   }
@@ -22,13 +20,15 @@ class CustomShapeScreen extends StatelessWidget {
 class CustomLine extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint();
+    var paint = Paint();
     paint.color = Colors.green[800];
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 2.0;
+    paint.strokeCap = StrokeCap.round;
 
-    Path path = Path();
-    path.lineTo(size.width, size.height);
+    var path = Path();
+    path.moveTo(0, size.height / 2);
+    path.lineTo(size.width, size.height / 2);
 
     canvas.drawPath(path, paint);
   }
@@ -36,5 +36,25 @@ class CustomLine extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
+  }
+}
+
+class CustomCircle extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint()
+      ..color = Colors.teal
+      ..strokeWidth = 5
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+
+    Offset center = Offset(size.width / 2, size.height / 2);
+
+    canvas.drawCircle(center, 100, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
   }
 }
