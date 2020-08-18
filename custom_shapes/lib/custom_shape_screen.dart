@@ -10,7 +10,7 @@ class CustomShapeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: CustomPaint(
-        painter: CustomBezier(),
+        painter: CustomCubic(),
         child: Container(),
       ),
     );
@@ -72,6 +72,26 @@ class CustomBezier extends CustomPainter {
     path.moveTo(0, size.height / 2);
     path.quadraticBezierTo(
         size.width / 10, size.height, size.width, size.height / 2);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class CustomCubic extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = Colors.red
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 8.0;
+
+    Path path = Path();
+    path.cubicTo(size.width / 4, 3 * size.height / 4, 3 * size.width / 4,
+        size.height / 4, size.width, size.height);
     canvas.drawPath(path, paint);
   }
 
