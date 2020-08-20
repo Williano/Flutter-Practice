@@ -1,4 +1,4 @@
-import 'package:children_reading_ui/screens/home_screen.dart';
+import 'package:children_reading_ui/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
