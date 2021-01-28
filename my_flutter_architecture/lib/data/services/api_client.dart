@@ -5,17 +5,19 @@ class APIClient implements BaseData {
   // static httpClient as ApiClient
 
   // base url
-  static String BaseURL;
+  String baseURL;
 
-  APIClient({@required String baseURL}) {
-    APIClient.BaseURL ??= baseURL;
-  }
+  // APIClient({@required String baseURL}) {
+  //   APIClient.BaseURL ??= baseURL;
+  // }
 
   static Future createData() {}
 
   static Future deleteData() {}
 
   static Future readData() {}
+
+  static Future readAllData() {}
 
   static Future updateData() {}
 }
