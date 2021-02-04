@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_app/utility/';
+import 'package:getx_app/utility/router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -12,9 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'GetX App',
+      debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.rightToLeft,
+      getPages: Router.route,
+      initialRoute: '/loginView',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
+        textTheme: TextTheme(
+            headline6: GoogleFonts.exo2(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold)),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
