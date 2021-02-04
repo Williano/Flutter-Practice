@@ -23,7 +23,7 @@ class HomeController extends GetxController {
     request.get().then((value) {
       UserListModel userListModel =
           UserListModel.fromJson(json.decode(value.body));
-      userListData.value = userListModel.data;
+      userListData.assignAll(userListModel.data);
       Get.back();
     }).catchError((onError) {
       print(onError);

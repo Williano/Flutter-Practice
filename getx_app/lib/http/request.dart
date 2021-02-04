@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:getx_app/http/url.dart';
 import 'package:http/http.dart' as http;
 
