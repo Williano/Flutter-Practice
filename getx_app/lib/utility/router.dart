@@ -4,7 +4,13 @@ import 'package:getx_app/view/home_view.dart';
 
 class Router {
   static final route = [
-    GetPage(name: "/loginView", page: () => LoginView()),
-    GetPage(name: "/homeView", page: () => HomeView()),
+    GetPage(
+        name: "/loginView",
+        page: () => LoginView(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: "/homeView",
+        page: () => HomeView(),
+        transition: Transition.cupertino),
   ];
 }
