@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'GetX App',
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.rightToLeft,
-      getPages: Router.route,
+      getPages: Routers.route,
       initialRoute: '/loginView',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
