@@ -6,19 +6,23 @@ class HomepageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: context.theme.backgroundColor,
-      child: RaisedButton(
-        color: context.theme.buttonColor,
-        child: Text(
-          "Change Theme",
-          style: TextStyle(color: Colors.white),
+      child: Container(
+        width: 20,
+        height: 20,
+        child: RaisedButton(
+          color: context.theme.buttonColor,
+          child: Text(
+            "Change Theme",
+            style: TextStyle(color: Colors.white),
+          ),
+          onPressed: () {
+            if (Get.isDarkMode) {
+              Get.changeThemeMode(ThemeMode.light);
+            } else {
+              Get.changeThemeMode(ThemeMode.dark);
+            }
+          },
         ),
-        onPressed: () {
-          if (Get.isDarkMode) {
-            Get.changeThemeMode(ThemeMode.light);
-          } else {
-            Get.changeThemeMode(ThemeMode.dark);
-          }
-        },
       ),
     );
   }
