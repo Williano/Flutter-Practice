@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class ThemeService {
-  final _box = GetStorage();
+  final GetStorage _box = GetStorage();
   final _key = 'isDarkMode';
 
   /// Get isDarkMode info from local storage and return ThemeMode
